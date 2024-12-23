@@ -2,6 +2,7 @@ package com.korit.main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class Main4 {
@@ -17,10 +18,10 @@ public class Main4 {
 //            numberList2.add(numberList.get(i) * 10);
 //        }
 //
-//        // 향상된 for문
-//        for (Integer number : numberList) {
-//            numberList2.add(number * 10);
-//        }
+        // 향상된 for문
+        for (Integer number : numberList) {
+            numberList2.add(number * 10);
+        }
 
         numberList3 = numberList.stream()
                 .map(num -> num * 10)
@@ -30,6 +31,21 @@ public class Main4 {
             .map(num -> num * 10)
             .collect(Collectors.toList())
             .forEach(System.out::println);
+
+
+
+
+
+        final List<Integer> numberList4 = new ArrayList<>();
+        AtomicReference<Integer> number = new AtomicReference<>(0);
+
+        numberList.forEach(num -> {
+            numberList4.add(num);
+            number.set(num * 10);
+        });
+
+//        numberList.forEach(num -> numberList4.add(num * 10));
+
         System.out.println(numberList);
         System.out.println(numberList2);
         System.out.println(numberList3);
