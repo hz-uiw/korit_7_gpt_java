@@ -33,9 +33,6 @@ public class Main4 {
             .forEach(System.out::println);
 
 
-
-
-
         final List<Integer> numberList4 = new ArrayList<>();
         AtomicReference<Integer> number = new AtomicReference<>(0);
 
